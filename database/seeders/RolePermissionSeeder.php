@@ -18,14 +18,12 @@ class RolePermissionSeeder extends Seeder
     {
         // Membuat permissions
         $permissions = [
+            'manage fields',
+            'manage bookings',
+            'manage timeslot',
             'view fields',
-            'create fields',
-            'edit fields',
-            'delete fields',
             'view bookings',
             'create bookings',
-            'edit bookings',
-            'delete bookings'
         ];
 
         foreach ($permissions as $permission) {
@@ -40,7 +38,7 @@ class RolePermissionSeeder extends Seeder
         $adminRole->givePermissionTo(Permission::all());
 
         // Memberikan permissions tertentu kepada user
-        $customerRole->givePermissionTo(['view fields', 'create bookings', 'view bookings']);
+        $customerRole->givePermissionTo(['view fields', 'view timeslot', 'create bookings', 'view bookings']);
 
         // Membuat user admin
         $admin = User::create([
