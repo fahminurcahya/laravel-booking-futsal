@@ -34,13 +34,13 @@ class RolePermissionSeeder extends Seeder
 
         // Membuat roles dan memberikan permissions
         $adminRole = Role::create(['name' => 'admin']);
-        $userRole = Role::create(['name' => 'user']);
+        $customerRole = Role::create(['name' => 'customer']);
 
         // Memberikan semua permissions kepada admin
         $adminRole->givePermissionTo(Permission::all());
 
         // Memberikan permissions tertentu kepada user
-        $userRole->givePermissionTo(['view fields', 'create bookings', 'view bookings']);
+        $customerRole->givePermissionTo(['view fields', 'create bookings', 'view bookings']);
 
         // Membuat user admin
         $admin = User::create([

@@ -8,4 +8,25 @@ use Illuminate\Database\Eloquent\Model;
 class Booking extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'user_id',
+        'total_amount',
+        'payment_status'
+    ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function timeSlots()
+    {
+        return $this->belongsToMany(TimeSlot::class, 'booking_timeslot');
+    }
+
+    public function payments()
+    {
+        return $this->hasMany(Payment::class);
+    }
 }
