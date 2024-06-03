@@ -12,7 +12,7 @@ class FieldController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.fields');
     }
 
     /**
